@@ -22,5 +22,12 @@ namespace Assignment05.Views
             Program.aboutBoxForm.ShowDialog();
         
         }
+
+        private void SelectForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dollarComputersDataSet.products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.dollarComputersDataSet.products);
+
+        }
     }
 }

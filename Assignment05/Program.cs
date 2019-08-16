@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Assignment05.Models;
 using Assignment05.Views;
 
 namespace Assignment05
 {
-    static class Program
+    public static class Program
     {
         public static AboutForm         aboutForm;          //About the program
         public static OrderForm         orderForm;          //Order a new product form
@@ -17,7 +18,7 @@ namespace Assignment05
         public static StartForm         startForm;  //The option form
         public static AboutBoxForm      aboutBoxForm;
 
-
+        public static Product product;
 
         /// <summary>
         /// The main entry point for the application.
@@ -27,6 +28,9 @@ namespace Assignment05
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            product = new Product();
+
 
             aboutForm       = new AboutForm();
             orderForm       = new OrderForm();
