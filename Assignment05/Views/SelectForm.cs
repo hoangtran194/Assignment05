@@ -20,6 +20,7 @@ namespace Assignment05.Views
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.aboutBoxForm.ShowDialog();
+
         }
     }
 }
