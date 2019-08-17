@@ -6,6 +6,42 @@ namespace Assignment05.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    enum ProductField
+    {
+        PRODUCT_ID,
+        COST,
+        MANUFACTURER,
+        MODEL,
+        RAM_TYPE,
+        RAM_SIZE,
+        DISPLAY_TYPE,
+        SCREEN_SIZE,
+        RESOLUTION,
+        CPU_CLASS,
+        CPU_BRANDS,
+        CPU_TYPE,
+        CPU_SPEED,
+        CPU_NUMBER,
+        CONDITION,
+        OS,
+        PLATFORM,
+        HDD_SIZE,
+        HDD_SPEED,
+        GPU_TYPE,
+        OPTICAL_DRIVE,
+        AUDIO_TYPE,
+        LAN,
+        WIFI,
+        WIDTH,
+        HEIGHT,
+        DEPTH,
+        WEIGHT,
+        MOUST_TYPE,
+        POWER,
+        WEBCAM,
+        NUMBER_OF_ELEMENTS
+    }
+
     public partial class Product
     {
         public short productID { get; set; }

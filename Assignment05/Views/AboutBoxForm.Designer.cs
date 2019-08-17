@@ -1,6 +1,6 @@
 ﻿namespace Assignment05.Views
 {
-    partial class AboutBoxForm
+    public partial class AboutBoxForm
     {
         /// <summary>
         /// Required designer variable.

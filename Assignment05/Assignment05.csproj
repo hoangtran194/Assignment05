@@ -47,6 +47,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Ultilities.cs" />
     <Compile Include="DollarComputersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,17 +82,17 @@
     <Compile Include="Views\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\OrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ProductInfoForm.Designer.cs">
       <DependentUpon>ProductInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectForm.cs">
       <SubType>Form</SubType>
@@ -120,6 +123,12 @@
     </Compile>
     <EmbeddedResource Include="Views\AboutBoxForm.resx">
       <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductInfoForm.resx">
+      <DependentUpon>ProductInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelectForm.resx">
       <DependentUpon>SelectForm.cs</DependentUpon>
@@ -156,10 +165,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Results\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="projectico_7WV_icon.ico" />
+    <Content Include="Resources\DesktopImage.png" />
+    <Content Include="Resources\LaptopImage.png" />
     <Content Include="Resources\selectScreenBackgroundImage.jpg" />
     <Content Include="Resources\splashScreenBanner.png" />
   </ItemGroup>

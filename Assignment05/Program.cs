@@ -11,8 +11,8 @@ namespace Assignment05
     public static class Program
     {
         public static AboutForm         aboutForm;          //About the program
-        public static OrderForm         orderForm;          //Order a new product form
-        public static ProductInfoForm   productInfoForm;    //Product detail form
+        public static ProductInfoForm         orderForm;          //Order a new product form
+        public static OrderForm   productInfoForm;    //Product detail form
         public static SelectForm        selectForm; //Select product form
         public static SplashForm        splashForm; //The flash screen
         public static StartForm         startForm;  //The option form
@@ -33,14 +33,15 @@ namespace Assignment05
 
 
             aboutForm       = new AboutForm();
-            orderForm       = new OrderForm();
-            productInfoForm = new ProductInfoForm();
+            orderForm       = new ProductInfoForm();
+            productInfoForm = new OrderForm();
             selectForm      = new SelectForm();
             splashForm      = new SplashForm();
             startForm       = new StartForm();
             aboutBoxForm    = new AboutBoxForm();
 
-            Application.Run(splashForm);
+            //Application.Run(splashForm);
+            Application.Run(startForm);
         }
     }
 }
