@@ -25,43 +25,51 @@ namespace Assignment05.Views
         {
             Product product = Program.product;
 
-            conditionTextbox.Text   = product.condition;
-            platformTextbox.Text    = product.platform;
-            manufactureTextBox.Text = product.manufacturer;
-            modelTextbox.Text       = product.model;
-
-            lcdSizeTextbox.Text     = product.screensize;
-            memoryTextbox.Text      = product.RAM_size;
-            cpuBrandTextbox.Text    = product.CPU_brand;
-            cpuTypeTextbox.Text     = product.CPU_type;
-            cpuNumberTextbox.Text   = product.CPU_number;
-            cpuSpeedTextbox.Text    = product.CPU_speed;
-            hddTextbox.Text         = product.HDD_size;
-            gpuTypeTextbox.Text     = product.GPU_Type;
-            webcamTextbox.Text      = product.webcam;
-            osTextbox.Text          = product.OS;
-
-            priceTextbox.Text       = Math.Round((double)product.cost, 2, MidpointRounding.ToEven).ToString();
-            saleTaxTextbox.Text     = Math.Round((double)product.cost * .13, 2, MidpointRounding.ToEven).ToString();
-            totalTextbox.Text       = Math.Round((double)product.cost * 1.13, 2, MidpointRounding.ToEven).ToString();
-
-            //set the image
-
-            if (product.platform.ToLower() == "laptop")
-            {                
-                computerPicturebox.Image = Image.FromFile("../../Resources/LaptopImage.png"); 
-            }
-            else
+            if (product != null)
             {
-                computerPicturebox.Image = Image.FromFile("../../Resources/DesktopImage.png");
-            }
+                conditionTextbox.Text = product.condition;
+                platformTextbox.Text = product.platform;
+                manufactureTextBox.Text = product.manufacturer;
+                modelTextbox.Text = product.model;
 
-            computerPicturebox.SizeMode = PictureBoxSizeMode.StretchImage;
+                lcdSizeTextbox.Text = product.screensize;
+                memoryTextbox.Text = product.RAM_size;
+                cpuBrandTextbox.Text = product.CPU_brand;
+                cpuTypeTextbox.Text = product.CPU_type;
+                cpuNumberTextbox.Text = product.CPU_number;
+                cpuSpeedTextbox.Text = product.CPU_speed;
+                hddTextbox.Text = product.HDD_size;
+                gpuTypeTextbox.Text = product.GPU_Type;
+                webcamTextbox.Text = product.webcam;
+                osTextbox.Text = product.OS;
+
+                priceTextbox.Text = Math.Round((double)product.cost, 2, MidpointRounding.ToEven).ToString();
+                saleTaxTextbox.Text = Math.Round((double)product.cost * .13, 2, MidpointRounding.ToEven).ToString();
+                totalTextbox.Text = Math.Round((double)product.cost * 1.13, 2, MidpointRounding.ToEven).ToString();
+
+                //set the image
+
+                if (product.platform.ToLower() == "laptop")
+                {
+                    computerPicturebox.Image = Image.FromFile("../../Resources/LaptopImage.png");
+                }
+                else
+                {
+                    computerPicturebox.Image = Image.FromFile("../../Resources/DesktopImage.png");
+                }
+
+                computerPicturebox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            
         }
 
         private void finishButton_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Thank for ordering this item, the item will be delivered in 7-10 business days", "", MessageBoxButtons.OK);
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -82,6 +90,11 @@ namespace Assignment05.Views
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            loadFile();
+        }
+
+        public void loadFile()
+        {
             string filePath = "";
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -95,7 +108,9 @@ namespace Assignment05.Views
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     filePath = openFileDialog.FileName;
-                    Product product = Ultilities.ReadSerializedObjectFile<Product>(filePath);               
+                    Product product = Ultilities.ReadSerializedObjectFile<Product>(filePath);
+                    Program.product = product;
+                    LoadData();
                 }
             }
         }
@@ -119,6 +134,32 @@ namespace Assignment05.Views
                 string fileName = saveFileDialog1.FileName;
                 Ultilities.WriteSerialObjectToFile(fileName, Program.product);
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.aboutBoxForm.ShowDialog();
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Your item description is printting");
+        }
+
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void openToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            loadFile();
         }
     }
 }

@@ -28,7 +28,6 @@ namespace Assignment05.Views
         {
             // TODO: This line of code loads data into the 'dollarComputersDataSet.products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.dollarComputersDataSet.products);
-
         }
 
         private void ProductDataGridView_SelectionChanged(object sender, EventArgs e)
@@ -42,7 +41,11 @@ namespace Assignment05.Views
             rows[rowIndex].Selected = true;
 
             string outputString = string.Empty;
-        
+
+            if (Program.product == null)
+            {
+                Program.product = new Product();
+            }
 
             Program.product.productID       = short.Parse(cells[(int)ProductField.PRODUCT_ID].Value.ToString());
             Program.product.cost            = decimal.Parse(cells[(int)ProductField.COST].Value.ToString());
@@ -84,12 +87,19 @@ namespace Assignment05.Views
         private void nextButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Program.productInfoForm.Show();
+            Program.productInfo.Show();
+            Program.productInfo.updateData();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.startForm.Show();
         }
     }
 }

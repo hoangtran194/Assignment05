@@ -27,7 +27,7 @@ namespace Assignment05.Views
         private void saveOrderButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Program.productInfoForm.Show();
+            Program.orderForm.Show();
 
         }
 
