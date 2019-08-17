@@ -40,8 +40,9 @@ namespace Assignment05
             startForm       = new StartForm();
             aboutBoxForm    = new AboutBoxForm();
 
-            //Application.Run(splashForm);
-            Application.Run(startForm);
+            Application.Run(splashForm);
+            
+
         }
     }
 }

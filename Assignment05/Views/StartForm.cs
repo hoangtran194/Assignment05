@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+/// <summary>
+/// Name: Tran Huy Hoang
+/// ID: 300 979 272
+/// </summary>
 namespace Assignment05.Views
 {
     public partial class StartForm : Form
